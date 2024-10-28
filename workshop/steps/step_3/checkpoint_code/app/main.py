@@ -68,14 +68,15 @@ async def chat(message: str):
         plugin_name="ChatBot",
         function_name="Chat",
     )
-    
+    # initialize the settings for the Chat service with AzureChatPromptExecutionSettings
     req_settings = AzureChatPromptExecutionSettings(service_id=service_id, tool_choice="auto")
+    # exclude the ChatBot plugin from the auto function choice
     req_settings.function_choice_behavior = FunctionChoiceBehavior.Auto(filters={"excluded_plugins": ["ChatBot"]})
+    
+    # Initializing the settings for the request execution.
+    arguments = KernelArguments(settings=req_settings)
 
     history = ChatHistory()
-
-    arguments = KernelArguments()
-
     arguments["chat_history"] = history
     arguments["user_input"] = message
     
