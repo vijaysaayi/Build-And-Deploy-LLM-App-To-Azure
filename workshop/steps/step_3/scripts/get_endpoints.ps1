@@ -6,7 +6,7 @@ param (
 )
 
 if (-not $subscription -or -not $AZURE_OPENAI_NAME -or -not $RESOURCE_GROUP_NAME -or -not $SESSION_POOL_NAME) {
-    Write-Host "Usage: .\show_keys.ps1 -subscription <subscription> -AZURE_OPENAI_NAME <AZURE_OPENAI_NAME> -RESOURCE_GROUP_NAME <RESOURCE_GROUP_NAME> -SESSION_POOL_NAME <SESSION_POOL_NAME>"
+    Write-Host "Usage: .\get_endpoints.ps1 -subscription <subscription> -AZURE_OPENAI_NAME <AZURE_OPENAI_NAME> -RESOURCE_GROUP_NAME <RESOURCE_GROUP_NAME> -SESSION_POOL_NAME <SESSION_POOL_NAME>"
     exit 1
 }
 
