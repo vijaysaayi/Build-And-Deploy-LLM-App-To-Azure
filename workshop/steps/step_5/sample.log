@@ -6,6 +6,9 @@
 [2024-10-25 18:34:09 - azure.identity._internal.decorators:34 - DEBUG] AzureCliCredential.get_token succeeded
 [2024-10-25 18:34:09 - azure.identity._internal.decorators:48 - DEBUG] [Authenticated account] Client ID: 04b07795-8ddb-461a-bbee-02f9e1bf7b46. Tenant ID: 72f988bf-86f1-41af-91ab-2d7cd011db47. User Principal Name: visaayir@microsoft.com. Object ID (user): b76d53d8-d486-4981-ada3-27aaae454146
 [2024-10-25 18:34:09 - azure.identity._credentials.chained:95 - INFO] DefaultAzureCredential acquired a token from AzureCliCredential
+
+## Step 1
+
 [2024-10-25 18:34:09 - openai._base_client:452 - DEBUG] Request options: 
 {
 	"method": 
@@ -137,10 +140,14 @@
 [2024-10-25 18:34:12 - semantic_kernel.connectors.ai.open_ai.services.open_ai_handler:108 - INFO] OpenAI usage: CompletionUsage(completion_tokens=53, prompt_tokens=230, total_tokens=283, completion_tokens_details=None, prompt_tokens_details=None)
 [2024-10-25 18:34:12 - semantic_kernel.connectors.ai.chat_completion_client_base:149 - INFO] processing 1 tool calls in parallel.
 
+## Step 2
+
 [2024-10-25 18:34:12 - semantic_kernel.kernel:383 - INFO] Calling SessionsTool-execute_code function with args: 
 {
     "code": "from datetime import datetime\nnow = datetime.now()\ncurrent_time = now.strftime(\"%Y-%m-%d %H:%M:%S\")\nprint(current_time)"
 }
+
+## Step 3
 
 [2024-10-25 18:34:12 - semantic_kernel.functions.kernel_function:19 - INFO] Function SessionsTool-execute_code invoking.
 [2024-10-25 18:34:12 - semantic_kernel.functions.kernel_function:24 - DEBUG] Function arguments: 
@@ -150,7 +157,7 @@
 	"code": "from datetime import datetime\nnow = datetime.now()\ncurrent_time = now.strftime("%Y-%m-%d %H:%M:%S")\nprint(current_time)"
 }
 
-
+## Step 4
 [2024-10-25 18:34:13 - azure.identity._internal.decorators:34 - DEBUG] AzureCliCredential.get_token succeeded
 [2024-10-25 18:34:13 - azure.identity._internal.decorators:48 - DEBUG] [Authenticated account] Client ID: 04b07795-8ddb-461a-bbee-02f9e1bf7b46. Tenant ID: 72f988bf-86f1-41af-91ab-2d7cd011db47. User Principal Name: visaayir@microsoft.com. Object ID (user): b76d53d8-d486-4981-ada3-27aaae454146
 [2024-10-25 18:34:13 - azure.identity._credentials.chained:95 - INFO] DefaultAzureCredential acquired a token from AzureCliCredential

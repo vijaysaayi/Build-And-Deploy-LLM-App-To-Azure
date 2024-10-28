@@ -69,7 +69,8 @@ async def chat(message: str):
         function_name="Chat",
     )
     # initialize the settings for the Chat service with AzureChatPromptExecutionSettings
-    req_settings = AzureChatPromptExecutionSettings(service_id=service_id, tool_choice="auto")
+    req_settings = AzureChatPromptExecutionSettings(service_id=service_id)
+    
     # exclude the ChatBot plugin from the auto function choice
     req_settings.function_choice_behavior = FunctionChoiceBehavior.Auto(filters={"excluded_plugins": ["ChatBot"]})
     
