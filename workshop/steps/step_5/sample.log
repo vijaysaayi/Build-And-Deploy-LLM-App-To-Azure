@@ -1,0 +1,310 @@
+[2024-10-25 18:34:08 - semantic_kernel.prompt_template.kernel_prompt_template:68 - DEBUG] Extracting blocks from template: {{$chat_history}}{{$user_input}}
+[2024-10-25 18:34:08 - semantic_kernel.functions.kernel_function:19 - INFO] Function ChatBot-Chat invoking.
+[2024-10-25 18:34:08 - semantic_kernel.functions.kernel_function:24 - DEBUG] Function arguments: {'chat_history': ChatHistory(messages=[]), 'user_input': 'What is the current time ?'}
+[2024-10-25 18:34:08 - semantic_kernel.prompt_template.kernel_prompt_template:113 - DEBUG] Rendering list of 2 blocks
+[2024-10-25 18:34:08 - semantic_kernel.prompt_template.kernel_prompt_template:129 - DEBUG] Rendered prompt: <chat_history />What is the current time ?
+[2024-10-25 18:34:09 - azure.identity._internal.decorators:34 - DEBUG] AzureCliCredential.get_token succeeded
+[2024-10-25 18:34:09 - azure.identity._internal.decorators:48 - DEBUG] [Authenticated account] Client ID: 04b07795-8ddb-461a-bbee-02f9e1bf7b46. Tenant ID: 72f988bf-86f1-41af-91ab-2d7cd011db47. User Principal Name: visaayir@microsoft.com. Object ID (user): b76d53d8-d486-4981-ada3-27aaae454146
+[2024-10-25 18:34:09 - azure.identity._credentials.chained:95 - INFO] DefaultAzureCredential acquired a token from AzureCliCredential
+[2024-10-25 18:34:09 - openai._base_client:452 - DEBUG] Request options: 
+{
+	"method": 
+	"post", 
+	"url": "/chat/completions", 
+	"headers": 
+	{
+		"Authorization": "Bearer eyJ0eX**"
+	}, 
+	"files": "None", 
+	"json_data": 
+	{
+		"messages": 
+		[
+			{
+				"role": "user", 
+				"content": "What is the current time ?"
+			}
+		], 
+		"model": "gpt-4", 
+		"stream": False, 
+		"tool_choice": "auto", 
+		"tools": 
+		[
+			{
+				"type": "function", 
+				"function": 
+				{
+					"name": "SessionsTool-execute_code", 
+					"description": "Executes the provided Python code.\n                     Start and end the code snippet with double quotes to define it as a string.\n                     Insert \\n within the string wherever a new line should appear.\n                     Add spaces directly after \\n sequences to replicate indentation.\n                     Use \" to include double quotes within the code without ending the string.\n                     Keep everything in a single line; the \\n sequences will represent line breaks\n                     when the string is processed or displayed.\n                     ", "parameters": 
+					{
+						"type": "object", 
+						"properties": 
+						{
+							"code": 
+							{
+								"type": "string", 
+								"description": "The valid Python code to execute"
+							}
+						}, 
+						"required": ["code"]
+					}
+				}
+			},
+			{
+				"type": "function", 
+				"function": 
+				{
+					"name": "SessionsTool-list_files", 
+					"description": "Lists all files in the provided Session ID", 
+					"parameters": 
+					{
+						"type": "object", 
+						"properties": {}, 
+						"required": []
+					}
+				}
+			}, 
+			{
+				"type": "function", 
+				"function": 
+				{
+					"name": "SessionsTool-upload_file", 
+					"description": "Uploads a file for the current Session ID", 
+					"parameters": 
+					{
+						"type": "object", 
+						"properties": 
+						{
+							"local_file_path": 
+							{
+								"type": "string", 
+								"description": "The path to the local file on the machine"
+							},
+							"remote_file_path": 
+							{
+								"type": "string", 
+								"description": "The remote path to the file in the session. Defaults to /mnt/data"
+							}
+						},
+						"required": ["local_file_path"]
+					}
+				}
+			}
+		]
+	}
+}
+
+[2024-10-25 18:34:09 - httpcore.connection:85 - DEBUG] connect_tcp.started host='visaayiropenai.openai.azure.com' port=443 local_address=None timeout=5.0 socket_options=None
+[2024-10-25 18:34:10 - httpcore.connection:85 - DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f242896cee0>
+[2024-10-25 18:34:10 - httpcore.connection:85 - DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x7f2428bf60c0> server_hostname='visaayiropenai.openai.azure.com' timeout=5.0
+[2024-10-25 18:34:10 - httpcore.connection:85 - DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f242896de40>
+[2024-10-25 18:34:10 - httpcore.http11:85 - DEBUG] send_request_headers.started request=<Request [b'POST']>
+[2024-10-25 18:34:10 - httpcore.http11:85 - DEBUG] send_request_headers.complete
+[2024-10-25 18:34:10 - httpcore.http11:85 - DEBUG] send_request_body.started request=<Request [b'POST']>
+[2024-10-25 18:34:10 - httpcore.http11:85 - DEBUG] send_request_body.complete
+[2024-10-25 18:34:10 - httpcore.http11:85 - DEBUG] receive_response_headers.started request=<Request [b'POST']>
+[2024-10-25 18:34:12 - httpcore.http11:85 - DEBUG] receive_response_headers.complete return_value=
+(
+    b'HTTP/1.1', 200, b'OK', 
+    [
+        (b'Cache-Control', b'no-cache, must-revalidate'), 
+        (b'Content-Length', b'969'), 
+        (b'Content-Type', b'application/json'), 
+        (b'access-control-allow-origin', b'*'), 
+        (b'apim-request-id', b'aeff84b2-c94d-45d9-a5db-775d74c884f1'), 
+        (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), 
+        (b'x-content-type-options', b'nosniff'), 
+        (b'x-ms-region', b'East US'), 
+        (b'x-ratelimit-remaining-requests', b'9'), 
+        (b'x-ratelimit-remaining-tokens', b'9353'), 
+        (b'x-accel-buffering', b'no'), 
+        (b'x-ms-rai-invoked', b'true'), 
+        (b'x-request-id', b'93a633e4-70e5-4f2c-8b34-0a65e7dea2cc'), 
+        (b'azureml-model-session', b'd019-20241011141759'), 
+        (b'x-envoy-upstream-service-time', b'1734'), 
+        (b'x-ms-client-request-id', b'Not-Set'), 
+        (b'Date', b'Fri, 25 Oct 2024 13:04:11 GMT')
+    ]
+)
+
+
+[2024-10-25 18:34:12 - httpx:1786 - INFO] HTTP Request: POST https://visaayiropenai.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2024-06-01 "HTTP/1.1 200 OK"
+[2024-10-25 18:34:12 - httpcore.http11:85 - DEBUG] receive_response_body.started request=<Request [b'POST']>
+[2024-10-25 18:34:12 - httpcore.http11:85 - DEBUG] receive_response_body.complete
+[2024-10-25 18:34:12 - httpcore.http11:85 - DEBUG] response_closed.started
+[2024-10-25 18:34:12 - httpcore.http11:85 - DEBUG] response_closed.complete
+[2024-10-25 18:34:12 - openai._base_client:1607 - DEBUG] HTTP Request: POST https://visaayiropenai.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2024-06-01 "200 OK"
+[2024-10-25 18:34:12 - semantic_kernel.connectors.ai.open_ai.services.open_ai_handler:108 - INFO] OpenAI usage: CompletionUsage(completion_tokens=53, prompt_tokens=230, total_tokens=283, completion_tokens_details=None, prompt_tokens_details=None)
+[2024-10-25 18:34:12 - semantic_kernel.connectors.ai.chat_completion_client_base:149 - INFO] processing 1 tool calls in parallel.
+
+[2024-10-25 18:34:12 - semantic_kernel.kernel:383 - INFO] Calling SessionsTool-execute_code function with args: 
+{
+    "code": "from datetime import datetime\nnow = datetime.now()\ncurrent_time = now.strftime(\"%Y-%m-%d %H:%M:%S\")\nprint(current_time)"
+}
+
+[2024-10-25 18:34:12 - semantic_kernel.functions.kernel_function:19 - INFO] Function SessionsTool-execute_code invoking.
+[2024-10-25 18:34:12 - semantic_kernel.functions.kernel_function:24 - DEBUG] Function arguments: 
+{
+	"chat_history": ChatHistory(messages=[]), 
+	"user_input": "What is the current time ?", 
+	"code": "from datetime import datetime\nnow = datetime.now()\ncurrent_time = now.strftime("%Y-%m-%d %H:%M:%S")\nprint(current_time)"
+}
+
+
+[2024-10-25 18:34:13 - azure.identity._internal.decorators:34 - DEBUG] AzureCliCredential.get_token succeeded
+[2024-10-25 18:34:13 - azure.identity._internal.decorators:48 - DEBUG] [Authenticated account] Client ID: 04b07795-8ddb-461a-bbee-02f9e1bf7b46. Tenant ID: 72f988bf-86f1-41af-91ab-2d7cd011db47. User Principal Name: visaayir@microsoft.com. Object ID (user): b76d53d8-d486-4981-ada3-27aaae454146
+[2024-10-25 18:34:13 - azure.identity._credentials.chained:95 - INFO] DefaultAzureCredential acquired a token from AzureCliCredential
+
+[2024-10-25 18:34:13 - semantic_kernel.core_plugins.sessions_python_tool.sessions_python_plugin:176 - INFO] Executing Python code: from datetime import datetime
+now = datetime.now()
+current_time = now.strftime("%Y-%m-%d %H:%M:%S")
+print(current_time)
+
+[2024-10-25 18:34:13 - httpcore.connection:85 - DEBUG] connect_tcp.started host='eastus.dynamicsessions.io' port=443 local_address=None timeout=5.0 socket_options=None
+[2024-10-25 18:34:13 - httpcore.connection:85 - DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f242896e920>
+[2024-10-25 18:34:13 - httpcore.connection:85 - DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x7f243e8075c0> server_hostname='eastus.dynamicsessions.io' timeout=5.0
+[2024-10-25 18:34:14 - httpcore.connection:85 - DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f2428a83460>
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_headers.started request=<Request [b'POST']>
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_headers.complete
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_body.started request=<Request [b'POST']>
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_body.complete
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] receive_response_headers.started request=<Request [b'POST']>
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 25 Oct 2024 13:04:14 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Server', b'Microsoft-IIS/10.0'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'mise-correlation-id', b'16d41dbd-7634-4aee-9c8a-2487fad2e0be'), (b'x-ms-container-execution-duration', b'10'), (b'x-ms-preparation-time', b'8.1653'), (b'x-ms-allocation-retries', b'0'), (b'x-ms-allocation-time', b'36.5557'), (b'x-ms-overall-execution-time', b'15.7398'), (b'x-ms-execution-request-time', b'7'), (b'x-ms-execution-read-response-time', b'0.0608'), (b'x-ms-total-execution-service-time', b'60.4772'), (b'x-ms-session-guid', b'ec432eb9-14e2-4c22-8413-e5225bb908dd'), (b'api-supported-versions', b'2023-08-01-preview, 2024-02-02-preview'), (b'X-Powered-By', b'ASP.NET')])
+[2024-10-25 18:34:14 - httpx:1786 - INFO] HTTP Request: POST https://eastus.dynamicsessions.io/subscriptions/89a79879-3240-47e4-b422-7e0288194696/resourceGroups/visaayir-code-interpreter-rg/sessionPools/code-interpreter-pool/code/execute?identifier=aa1764e9-2757-4ca3-aa5c-301522b0d7cc&api-version=2024-02-02-preview "HTTP/1.1 200 OK"
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] receive_response_body.started request=<Request [b'POST']>
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] receive_response_body.complete
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] response_closed.started
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] response_closed.complete
+[2024-10-25 18:34:14 - semantic_kernel.functions.kernel_function:29 - INFO] Function SessionsTool-execute_code succeeded.
+
+[2024-10-25 18:34:14 - semantic_kernel.functions.kernel_function:39 - DEBUG] Function result: Result:
+Stdout:
+2024-10-25 13:04:14
+Stderr:
+
+[2024-10-25 18:34:14 - semantic_kernel.functions.kernel_function:53 - INFO] Function completed. Duration: 1.825138s
+[2024-10-25 18:34:14 - openai._base_client:452 - DEBUG] Request options: 
+{
+	"method": "post", 
+	"url": "/chat/completions", 
+	"headers": 
+	{
+		"Authorization": "Bearer eyJ0eXA****"}, 
+		"files": "None", 
+		"json_data": 
+		{
+			"messages": 
+			[
+				{
+					"role": "user", 
+					"content": "What is the current time ?"
+				}, 
+				{
+					"role": "assistant", 
+					"tool_calls": 
+					[
+						{
+							"id": "call_jzsYz9aMCqwop75ldFGbqNKL", 
+							"type": "function", 
+							"function": 
+							{
+								"name": "SessionsTool-execute_code", 
+								"arguments": "{"code":"from datetime import datetime\\nnow = datetime.now()\\ncurrent_time = now.strftime(\\"%Y-%m-%d %H:%M:%S\\")\\nprint(current_time)"}"
+							}
+						}
+					]
+				},
+				{
+					"role": "tool", 
+					"content": "Result:\nStdout:\n2024-10-25 13:04:14\nStderr:\n", 
+					"tool_call_id": "call_jzsYz9aMCqwop75ldFGbqNKL"
+				}
+			], 
+			"model": "gpt-4", 
+			"stream": False, 
+			"tool_choice": "auto", 
+			"tools": 
+			[
+				{
+					"type": "function", 
+					"function": 
+					{
+						"name": "SessionsTool-execute_code", 
+						"description": "Executes the provided Python code.\n                     Start and end the code snippet with double quotes to define it as a string.\n                     Insert \\n within the string wherever a new line should appear.\n                     Add spaces directly after \\n sequences to replicate indentation.\n                     Use " to include double quotes within the code without ending the string.\n                     Keep everything in a single line; the \\n sequences will represent line breaks\n                     when the string is processed or displayed.\n                     ",
+						"parameters": 
+						{
+							"type": "object", 
+							"properties": 
+							{
+								"code": 
+								{
+									"type": "string", 
+									"description": "The valid Python code to execute"
+								}
+							}, 
+							"required": ["code"]
+						}
+					}
+				}, 
+				{
+					"type": "function", 
+					"function": 
+					{
+						"name": "SessionsTool-list_files", 
+						"description": "Lists all files in the provided Session ID", 
+						"parameters": 
+						{
+							"type": "object", 
+							"properties": {}, 
+							"required": []
+						}
+					}
+				}, 
+				{
+					"type": "function", 
+					"function": 
+					{
+						"name": "SessionsTool-upload_file", 
+						"description": "Uploads a file for the current Session ID", 
+						"parameters": 
+						{
+							"type": "object", 
+							"properties": 
+							{
+								"local_file_path": 
+								{
+									"type": "string", 
+									"description": "The path to the local file on the machine"
+								}, 
+								"remote_file_path": 
+								{
+									"type": "string", 
+									"description": "The remote path to the file in the session. Defaults to /mnt/data"
+								}
+							}, 
+							"required": ["local_file_path"]
+						}
+					}
+				}
+			]
+		}
+	}
+}
+
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_headers.started request=<Request [b'POST']>
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_headers.complete
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_body.started request=<Request [b'POST']>
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] send_request_body.complete
+[2024-10-25 18:34:14 - httpcore.http11:85 - DEBUG] receive_response_headers.started request=<Request [b'POST']>
+[2024-10-25 18:34:15 - httpcore.http11:85 - DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'no-cache, must-revalidate'), (b'Content-Length', b'1030'), (b'Content-Type', b'application/json'), (b'access-control-allow-origin', b'*'), (b'apim-request-id', b'42071fe8-18cd-4139-9440-de8c478544bd'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-ms-region', b'East US'), (b'x-ratelimit-remaining-requests', b'8'), (b'x-ratelimit-remaining-tokens', b'8694'), (b'x-accel-buffering', b'no'), (b'x-ms-rai-invoked', b'true'), (b'x-request-id', b'2ea81447-1825-414c-86be-dad67b526919'), (b'azureml-model-session', b'd023-20241011171157'), (b'x-envoy-upstream-service-time', b'741'), (b'x-ms-client-request-id', b'Not-Set'), (b'Date', b'Fri, 25 Oct 2024 13:04:14 GMT')])
+[2024-10-25 18:34:15 - httpx:1786 - INFO] HTTP Request: POST https://visaayiropenai.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2024-06-01 "HTTP/1.1 200 OK"
+[2024-10-25 18:34:15 - httpcore.http11:85 - DEBUG] receive_response_body.started request=<Request [b'POST']>
+[2024-10-25 18:34:15 - httpcore.http11:85 - DEBUG] receive_response_body.complete
+[2024-10-25 18:34:15 - httpcore.http11:85 - DEBUG] response_closed.started
+[2024-10-25 18:34:15 - httpcore.http11:85 - DEBUG] response_closed.complete
+[2024-10-25 18:34:15 - openai._base_client:1607 - DEBUG] HTTP Request: POST https://visaayiropenai.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2024-06-01 "200 OK"
+[2024-10-25 18:34:15 - semantic_kernel.connectors.ai.open_ai.services.open_ai_handler:108 - INFO] OpenAI usage: CompletionUsage(completion_tokens=19, prompt_tokens=312, total_tokens=331, completion_tokens_details=None, prompt_tokens_details=None)
+[2024-10-25 18:34:15 - semantic_kernel.functions.kernel_function:29 - INFO] Function ChatBot-Chat succeeded.
+[2024-10-25 18:34:15 - semantic_kernel.functions.kernel_function:39 - DEBUG] Function result: The current time is 2024-10-25 13:04:14.
+[2024-10-25 18:34:15 - semantic_kernel.functions.kernel_function:53 - INFO] Function completed. Duration: 6.828044s
+INFO:     127.0.0.1:37770 - "GET /chat?message=What%20is%20the%20current%20time%20? HTTP/1.1" 200 OK

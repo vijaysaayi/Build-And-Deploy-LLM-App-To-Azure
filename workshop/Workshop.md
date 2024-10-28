@@ -5,7 +5,7 @@
 ## Steps
 1. Deploy `Azure Open AI` and `Azure Container App Python Session pool`.
 2. Build an API.
-2. Implement Code to interact with LLM.
-3. Implement code to execute code.
-4. Review the logs
-5. Deploy to the app to Azure Container apps.
+3. Implement Code to interact with LLM.
+4. Implement code to execute LLM generated Python code using dynamic session pools of ACA.
+5. Review the logs
+6. Deploy to the app to Azure Container apps.
