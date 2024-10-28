@@ -1,1 +1,1 @@
-# Step 6 : Deploy to ACA instance
+# Step 6 : Deploy to Azure.

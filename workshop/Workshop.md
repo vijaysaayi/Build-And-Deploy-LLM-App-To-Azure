@@ -8,4 +8,4 @@
 3. Implement Code to interact with LLM.
 4. Implement code to execute LLM generated Python code using dynamic session pools of ACA.
 5. Review the logs
-6. Deploy to the app to Azure Container apps.
+6. Deploy to the app to Azure.
